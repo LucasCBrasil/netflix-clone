@@ -1,0 +1,99 @@
+.banner {
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 65svh;
+    overflow: hidden;
+    color: white;
+    background-color: #111;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.banner::after {
+    position: absolute;
+    z-index: -1;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: clamp(8rem, 24vh, 14rem);
+    background-image: linear-gradient(
+        180deg,
+        transparent,
+        rgba(17, 17, 17, 0.65),
+        #111
+    );
+    content: "";
+    pointer-events: none;
+}
+
+.banner__contents {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding: clamp(1rem, 22vh, 12rem) clamp(1rem, 5vw, 4rem) clamp(2rem, 5vh, 4rem);
+    text-align: left;
+}
+
+.banner__title {
+    max-width: 100%;
+    margin: 0;
+    padding-bottom: 0.3rem;
+    color: white;
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 800;
+    letter-spacing: normal;
+    line-height: 1.1;
+    overflow-wrap: anywhere;
+}
+
+.banner__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.banner__description {
+    width: min(45rem, 100%);
+    max-width: 100%;
+    margin: 0;
+    padding-top: 1rem;
+    color: white;
+    font-size: clamp(0.875rem, 1.5vw, 1rem);
+    line-height: 1.5;
+}
+
+.banner__button {
+    cursor: pointer;
+    border: none;
+    border-radius: 0.2rem;
+    padding: 0.6rem 1.5rem;
+    color: #fff;
+    background-color: rgba(51, 51, 51, 0.7);
+    font-weight: 700;
+    transition: color 0.2s, background-color 0.2s;
+}
+
+.banner__button:hover {
+    color: #000;
+    background-color: #e6e6e6;
+}
+
+@media (max-width: 480px) {
+    .banner__contents {
+        padding-right: 1rem;
+        padding-bottom: 2rem;
+        padding-left: 1rem;
+    }
+
+    .banner__button {
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
+}
