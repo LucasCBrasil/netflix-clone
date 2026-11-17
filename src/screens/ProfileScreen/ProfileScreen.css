@@ -3,18 +3,21 @@
     flex-direction: column;
     align-items: center;
     color: white;
+    width: 100%;
     min-height: 100vh;
+    min-height: 100svh;
     background-color: #111;
     box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 .profileScreen__body {
     display: flex;
     flex-direction: column;
-    align-items: left;
+    align-items: flex-start;
     margin-top: 100px;
-    width: 40%;
-    max-width: 800px;
+    width: min(800px, calc(100% - 40px));
+    box-sizing: border-box;
 }
 
 .profileScreen__body > h1 {
@@ -24,7 +27,7 @@
     color: white;
     display: flex;
     flex-direction: row;
-    align-items: left;
+    align-items: flex-start;
 
 }
 
@@ -33,14 +36,14 @@
     margin-bottom: 10px;
     display: flex;
     flex-direction: row;
+    min-width: 0;
 }
 
 .profileScreen__info > img {
     height: 100px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
+    width: 100px;
+    flex: 0 0 100px;
+    object-fit: cover;
 }
 
 .profileScreen__info > h1 {
@@ -66,21 +69,27 @@
     text-align: left;
     width: 100%;
     margin-left: 20px;
+    min-width: 0;
 }
 
 .profileScreen__details > h2 {
-    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+    min-height: 48px;
+    box-sizing: border-box;
+    padding: 10px 30px;
     color: white;
     background-color: gray;
-    padding-left: 30px;
+    overflow-wrap: anywhere;
 }
 
 .profileScreen__plans {
     display: flex;
     flex-direction: column;
-    align-items: left;
+    align-items: flex-start;
     width: 100%;
     margin-top: 20px;
+    min-width: 0;
 }
 
 .profileScreen__plans > h4 {
@@ -102,7 +111,20 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 8px 12px;
     margin-bottom: 10px;
+    width: 100%;
+}
+
+.profileScreen__planInfo {
+    flex: 1 1 180px;
+    min-width: 0;
+}
+
+.profileScreen__planInfo > h5,
+.profileScreen__planInfo > h6 {
+    overflow-wrap: anywhere;
 }
 
 .profileScreen__plan > button {
@@ -148,4 +170,30 @@
     font-size: 1rem;
     cursor: pointer;
     border-radius: 5px;
+}
+
+@media (max-width: 600px) {
+    .profileScreen__body {
+        width: calc(100% - 32px);
+        margin-top: 80px;
+    }
+
+    .profileScreen__info > img {
+        width: 64px;
+        height: 64px;
+        flex-basis: 64px;
+    }
+
+    .profileScreen__details {
+        margin-left: 12px;
+    }
+
+    .profileScreen__details > h2 {
+        padding: 10px 12px;
+        font-size: 1rem;
+    }
+
+    .profileScreen__plan {
+        align-items: flex-start;
+    }
 }
